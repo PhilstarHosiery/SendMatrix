@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+
+    id 'com.gradleup.shadow' version '8.3.5'
+//    id 'de.jjohannes.extra-java-module-info' version '0.16'
+}
+
+//group = 'com.philstar.app.sendmatrix'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+//    testImplementation platform('org.junit:junit-bom:5.10.0')
+//    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation 'com.cosium.matrix_communication_client:matrix-communication-client:1.9'
+}
+
+application {
+    mainClass = 'com.philstar.app.sendmatrix.Main'
+//    mainModule = 'com.philstar.app.SendMatrix'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.philstar.app.sendmatrix.Main'
+        )
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
