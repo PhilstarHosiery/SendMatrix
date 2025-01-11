@@ -1,5 +1,5 @@
 # SendMatrix
 
 ## Usage
-java -jar SendMatrix-?.?-all.jar sendmatrix.conf '!IuPhuXtAYVbgLAKhwR:matrix.philstar.biz' < message.txt
+    java -jar SendMatrix-?.?-all.jar sendmatrix.conf '!IuPhuXtAYVbgLAKhwR:matrix.philstar.biz' < message.txt
 
