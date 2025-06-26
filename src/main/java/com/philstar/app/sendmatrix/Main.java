@@ -8,8 +8,9 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 import java.util.Properties;
-import java.util.stream.Collectors;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -48,10 +49,12 @@ public class Main {
                     .byId(roomId);
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            String message = reader.lines().collect(Collectors.joining("\n"));
-            String formattedMessage = reader.lines().collect(Collectors.joining("<br />"));
+            List<String> lines = reader.lines().toList();
 
-            room.sendMessage(Message.builder().body(message).formattedBody(formattedMessage).build());
+            String message = String.join("\n", lines);
+//            String formattedMessage = String.join("<br />", lines); // Spaces too wide on Element X
+
+            room.sendMessage(Message.builder().body(message).formattedBody(null).build());
 
         } catch (IOException ex) {
             System.err.println(ex.getMessage());
